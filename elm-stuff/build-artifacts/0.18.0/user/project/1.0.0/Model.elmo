@@ -1,0 +1,46 @@
+var _user$project$Model$data2 = '{ \"name\": { \"first\": \"Tim\", \"last\": \"Testa\"} }';
+var _user$project$Model$data1 = '{ \"firstName\": \"Sam\", \"lastName\": \"Sample\" }';
+var _user$project$Model$personDecoder = _elm_lang$core$Json_Decode$oneOf(
+	{
+		ctor: '::',
+		_0: A2(_elm_lang$core$Json_Decode$field, 'firstName', _elm_lang$core$Json_Decode$string),
+		_1: {
+			ctor: '::',
+			_0: A2(
+				_elm_lang$core$Json_Decode$at,
+				{
+					ctor: '::',
+					_0: 'name',
+					_1: {
+						ctor: '::',
+						_0: 'first',
+						_1: {ctor: '[]'}
+					}
+				},
+				_elm_lang$core$Json_Decode$string),
+			_1: {ctor: '[]'}
+		}
+	});
+var _user$project$Model$result = function () {
+	var _p0 = A2(_elm_lang$core$Json_Decode$decodeString, _user$project$Model$personDecoder, _user$project$Model$data2);
+	if (_p0.ctor === 'Ok') {
+		return _p0._0;
+	} else {
+		return _p0._0;
+	}
+}();
+var _user$project$Model$main = _elm_lang$virtual_dom$Native_VirtualDom.staticProgram(
+	_elm_lang$html$Html$text(_user$project$Model$result));
+var _user$project$Model$nullPerson = {firstName: 'Max', lastName: 'Mustermann'};
+var _user$project$Model$decodePerson = function (jsonData) {
+	var _p1 = A2(_elm_lang$core$Json_Decode$decodeValue, _user$project$Model$personDecoder, jsonData);
+	if (_p1.ctor === 'Ok') {
+		return _p1._0;
+	} else {
+		return _user$project$Model$nullPerson.firstName;
+	}
+};
+var _user$project$Model$Person = F2(
+	function (a, b) {
+		return {firstName: a, lastName: b};
+	});

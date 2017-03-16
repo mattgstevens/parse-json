@@ -1,0 +1,11 @@
+var _user$project$Repl$t_s_o_l = {ctor: '_Tuple0'};
+var _user$project$Repl$d_e_l_t_r_o_n_3_0_3_0 = _elm_lang$core$Basics$toString(33);
+var _user$project$Repl$Point = F2(
+	function (a, b) {
+		return {x: a, y: b};
+	});
+var _user$project$Repl$pointDecoder = A3(
+	_elm_lang$core$Json_Decode$map2,
+	_user$project$Repl$Point,
+	A2(_elm_lang$core$Json_Decode$field, 'x', _elm_lang$core$Json_Decode$int),
+	A2(_elm_lang$core$Json_Decode$field, 'y', _elm_lang$core$Json_Decode$int));
